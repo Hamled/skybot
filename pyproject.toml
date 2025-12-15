@@ -1,0 +1,29 @@
+[build-system]
+requires = ["setuptools", "setuptools-scm[simple]"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "skybot"
+dynamic = ["version"]
+authors = [{ name = "Ryan Hitchman", email = "hitchmanr@gmail.com" }]
+description = "Python IRC bot"
+readme = "README.md"
+requires-python = ">= 3.7"
+license = "Unlicense"
+license-files = ["LICENSE"]
+dependencies = [
+    "future>=1.0.0",
+    "lxml>=5.4.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/rmmh/skybot"
+Issues = "https://github.com/rmmh/skybot/issues"
+
+[project.scripts]
+skybot = "skybot.bot:main"
+
+[tool.setuptools.package-dir]
+skybot = "."
+"skybot.core" = "core"
+"skybot.plugins" = "plugins"
