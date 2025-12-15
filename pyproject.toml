@@ -27,3 +27,8 @@ skybot = "skybot.bot:main"
 skybot = "."
 "skybot.core" = "core"
 "skybot.plugins" = "plugins"
+
+[dependency-groups]
+dev = [
+    "mock>=5.2.0",
+]
