@@ -4,10 +4,10 @@ import os
 
 
 def find_config():
-    # for backwards compatibility, look for either 'config' or 'config.json'
-    if os.path.exists("config"):
-        return "config"
-    return "config.json"
+    home = os.getenv("HOME")
+    config_home = os.getenv("XDG_CONFIG_HOME") or home and (home + "/.config")
+    skybot_config_dir = config_home and (config_home + "/skybot") 
+    return (skybot_config_dir or ".") + "/config.json"
 
 
 def save(conf):
@@ -15,7 +15,7 @@ def save(conf):
 
 
 if not os.path.exists(find_config()):
-    open("config.json", "w").write(
+    open(find_config(), "w").write(
         inspect.cleandoc(
             r"""
         {
