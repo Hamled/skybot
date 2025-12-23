@@ -1,0 +1,1 @@
+.guix/modules/skybot-package.scm
